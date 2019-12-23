@@ -2,7 +2,7 @@ body
 {
   background-color: #1e1e1e;
   color: #ddd;
-  font-family: 'Bloomberg Fixed Unicode B', 'Cousine';
+  font-family: 'Bloomberg Fixed Unicode B', monospace;
   font-size: small;
   margin: 0;
 }
