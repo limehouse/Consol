@@ -1,0 +1,78 @@
+body
+{
+  background-color: #1e1e1e;
+  color: #ddd;
+  font-family: 'Bloomberg Fixed Unicode B', 'Cousine';
+  font-size: small;
+  margin: 0;
+}
+
+section
+{
+  line-height: 1.6em;
+  padding: 0 8px;
+}
+
+section.red
+{
+  background-color: #920017;
+  color: #ddd;
+}
+
+section.black
+{
+  background-color: #1a1a1a;
+  color: #ddd;
+}
+
+section#console
+{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #F05500;
+}
+
+section#console span
+{
+  color: #ddd;
+}
+
+nav
+{
+  line-height: 2.6em;
+  padding: 0 6px;
+  background-color: #1a1a1a;
+}
+
+button.navigator, button.navigator::-moz-focus-inner
+{
+  border: 0 !important;
+}
+
+button.navigator
+{
+  background-color: inherit;
+  border-radius: initial;
+  border: 0;
+  color: #111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  outline: none;
+  padding: 4px 0;
+  text-decoration: none;
+  width: 70px;
+}
+
+button.red
+{
+  background-color: #d01a1e;
+}
+
+button.green
+{
+  background-color: #00C017;
+}
