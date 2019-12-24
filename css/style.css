@@ -1,7 +1,19 @@
+:root
+{
+  --green: #00c017;
+  --red: #920017;
+  --darkorange: #F05500;
+  --darkbar: #1a1a1a;
+  --cancel: #e61919;
+  --background: #1e1e1e;
+  --text: #ddd;
+  --navtext: #111;
+  --button-width: 70px;
+}
 body
 {
-  background-color: #1e1e1e;
-  color: #ddd;
+  background-color: var(--background);
+  color: var(--text);
   font-family: 'Bloomberg Fixed Unicode B', monospace;
   font-size: small;
   margin: 0;
@@ -15,14 +27,14 @@ section
 
 section.red
 {
-  background-color: #920017;
-  color: #ddd;
+  background-color: var(--red);
+  color: var(--text);
 }
 
 section.black
 {
-  background-color: #1a1a1a;
-  color: #ddd;
+  background-color: var(--darkbar);
+  color: var(--text);
 }
 
 section#console
@@ -30,19 +42,28 @@ section#console
   position: fixed;
   bottom: 0;
   width: 100%;
-  color: #F05500;
+  color: var(--darkorange);
 }
 
-section#console span
+section#console span#console-return
 {
-  color: #ddd;
+  color: var(--text);
 }
 
-nav
+section#console span#console-button
+{
+  color: var(--navtext);
+  display: inline-block;
+  width: var(--button-width);
+  text-align: center;
+  font-weight: 600;
+}
+
+nav#thenav
 {
   line-height: 2.6em;
   padding: 0 6px;
-  background-color: #1a1a1a;
+  background-color: var(--darkbar);
 }
 
 button.navigator, button.navigator::-moz-focus-inner
@@ -55,7 +76,7 @@ button.navigator
   background-color: inherit;
   border-radius: initial;
   border: 0;
-  color: #111;
+  color: var(--navtext);
   cursor: pointer;
   display: inline-block;
   font-family: inherit;
@@ -64,15 +85,24 @@ button.navigator
   outline: none;
   padding: 4px 0;
   text-decoration: none;
-  width: 70px;
+  width: var(--button-width);
+  margin: 0 7px 0 0;
 }
 
-button.red
+button.red,
+span.red
 {
-  background-color: crimson;
+  background-color: var(--red);
 }
 
-button.green
+button.green,
+span.green
 {
-  background-color: #00C017;
+  background-color: var(--green);
+}
+
+button.cancel,
+span.cancel
+{
+  background-color: var(--cancel);
 }

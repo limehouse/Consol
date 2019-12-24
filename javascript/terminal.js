@@ -2,42 +2,66 @@ const message = {
   buttons : {
     nav0 : {
       Label : "Cancel",
-      Message : "Hold on tight, we're heading home!"
+      Message : "Hold on tight, we're heading home!",
+      Class : "cancel"
     },
     nav1 : {
-      Label : "One",
-      Message : "Clicked"
+      Label : "News",
+      Message : "Clicked",
+      Class : "green"
     },
     nav2 : {
       Label : "Two",
-      Message : "Clicked"
+      Message : "Clicked",
+      Class : "green"
     },
     nav3 : {
       Label : "Three",
-      Message : "Clicked"
+      Message : "Clicked",
+      Class : "green"
     },
     nav4 : {
       Label : "Four",
-      Message : "Clicked"
+      Message : "Clicked",
+      Class : "green"
     },
     nav5 : {
       Label : "Five",
-      Message : "Clicked"
+      Message : "Clicked",
+      Class : "green"
     },
     nav6 : {
       Label : "Six",
-      Message : "Clicked"
+      Message : "Clicked",
+      Class : "green"
     }
   },
   getMessage : function(key)
   {
-    return "[".concat(this.buttons[key].Label.toUpperCase(), "] ", this.buttons[key].Message);
+    return this.buttons[key];
   }
 }
 
+/*
+    console output
+*/
 function navigate(output)
 {
-  let msgs = message.getMessage(output.id);
-  document.getElementById("console-return").innerHTML = msgs;
-  console.log(msgs);
+  let btn = message.getMessage(output.id);
+  //console.log(btn.Label, btn.Message);
+  document.getElementById("console-button").className = "";
+  document.getElementById("console-button").classList.add(btn.Class);
+  document.getElementById("console-button").innerHTML = btn.Label;
+  document.getElementById("console-return").innerHTML = btn.Message;
+}
+
+/*
+    add buttons to the navigator
+*/
+let key;
+for (key in message.buttons)
+{
+  //console.log(key, message.buttons[key]);
+  document.getElementById("thenav").insertAdjacentHTML("beforeend", `<button id="${key}" class="navigator" onClick="navigate(this)">${message.buttons[key].Label}</button>`);
+  document.getElementById(`${key}`).classList.add(`${message.buttons[key].Class}`);
 }
