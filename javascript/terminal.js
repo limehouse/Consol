@@ -6,33 +6,33 @@ const message = {
       Class : "cancel"
     },
     nav1 : {
-      Label : "News",
-      Message : "Clicked",
+      Label : "Search",
+      Message : "Off we <a href='https://www.duckduckgo.com/' target='_blank'>DuckDuckGo</a>",
       Class : "green"
     },
     nav2 : {
-      Label : "Two",
-      Message : "Clicked",
+      Label : "SSH",
+      Message : "Make me look 1337",
       Class : "green"
     },
     nav3 : {
-      Label : "Three",
-      Message : "Clicked",
+      Label : "News",
+      Message : "No news is good news",
       Class : "green"
     },
     nav4 : {
-      Label : "Four",
-      Message : "Clicked",
+      Label : "Download",
+      Message : "Oooharr",
       Class : "green"
     },
     nav5 : {
-      Label : "Five",
-      Message : "Clicked",
+      Label : "Roster",
+      Message : "Don't forget to RSVP",
       Class : "green"
     },
     nav6 : {
-      Label : "Six",
-      Message : "Clicked",
+      Label : "Help",
+      Message : "You can lead a horse to water&hellip;",
       Class : "green"
     }
   },

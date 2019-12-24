@@ -2,14 +2,23 @@
 {
   --green: #00c017;
   --red: #920017;
-  --darkorange: #F05500;
+  --orangered: #f05500;
+  --orange: #ff9a00;
+  --darkblue: #044e7e;
   --darkbar: #1a1a1a;
+  --yellow: #ffe000;
+  --lime: #00ff00;
+  --darkgreen: #008900;
+  --skyblue: #00c5fb;
+  --magenta: #ff00fd;
   --cancel: #e61919;
   --background: #1e1e1e;
   --text: #ddd;
   --navtext: #111;
+  --hyper: #dc143c;
   --button-width: 70px;
 }
+
 body
 {
   background-color: var(--background);
@@ -42,7 +51,7 @@ section#console
   position: fixed;
   bottom: 0;
   width: 100%;
-  color: var(--darkorange);
+  color: var(--orangered);
 }
 
 section#console span#console-return
@@ -105,4 +114,10 @@ button.cancel,
 span.cancel
 {
   background-color: var(--cancel);
+}
+
+a
+{
+  color: var(--hyper);
+  text-decoration: none;
 }
