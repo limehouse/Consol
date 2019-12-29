@@ -1,7 +1,7 @@
 const message = {
   buttons : {
     nav0 : {
-      Label : "Cancel",
+      Label : "Home",
       Message : "Hold on tight, we're heading home!",
       Class : "cancel"
     },
@@ -42,26 +42,20 @@ const message = {
   }
 }
 
-/*
-    console output
-*/
-function navigate(output)
+function navigate(input)
 {
-  let btn = message.getMessage(output.id);
-  //console.log(btn.Label, btn.Message);
-  document.getElementById("console-button").className = "";
-  document.getElementById("console-button").classList.add(btn.Class);
-  document.getElementById("console-button").innerHTML = btn.Label;
-  document.getElementById("console-return").innerHTML = btn.Message;
+  let btn = message.getMessage(input.id);
+  document.getElementById("label").className = "";
+  document.getElementById("label").classList.add(btn.Class);
+  document.getElementById("label").innerHTML = btn.Label;
+  document.getElementById("message").innerHTML = btn.Message;
+  document.getElementById("header").innerHTML = btn.Label;
 }
 
-/*
-    add buttons to the navigator
-*/
 let key;
 for (key in message.buttons)
 {
-  //console.log(key, message.buttons[key]);
-  document.getElementById("thenav").insertAdjacentHTML("beforeend", `<button id="${key}" class="navigator" onClick="navigate(this)">${message.buttons[key].Label}</button>`);
+  document.getElementById("topnav").insertAdjacentHTML("beforeend", `<button id="${key}" class="action" onClick="navigate(this)">${message.buttons[key].Label}</button>`);
   document.getElementById(`${key}`).classList.add(`${message.buttons[key].Class}`);
 }
+

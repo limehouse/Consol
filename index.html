@@ -8,27 +8,16 @@
     <title>Consol</title>
   </head>
   <body>
-    <header>
-      <nav id="thenav">
-        <!--
-        <button id="nav0" class="navigator red" onClick="navigate(this)">Cancel</button>
-        <button id="nav1" class="navigator green" onClick="navigate(this)">One</button>
-        <button id="nav2" class="navigator green" onClick="navigate(this)">Two</button>
-        <button id="nav3" class="navigator green" onClick="navigate(this)">Three</button>
-        <button id="nav4" class="navigator green" onClick="navigate(this)">Four</button>
-        <button id="nav5" class="navigator green" onClick="navigate(this)">Five</button>
-        <button id="nav6" class="navigator green" onClick="navigate(this)">Six</button>
-        -->
-      </nav>
-    </header>
-    <section>
-      section 1
+    <nav id="topnav">
+    </nav>
+    <section id="content">
+      <div id="header">Home</div>
+      <div id="page">Content here</div>
     </section>
-    <section>
-      section 2
-    </section>
-    <section id="console" class="black">
-      Command History: <span id="console-button"></span>&nbsp;<span id="console-return"></span>
+    <section id="console">
+      <span id="history">Command History:</span>
+      <span id="label"></span>
+      <span id="message"></span>
     </section>
   </body>
   <script src="javascript/terminal.js"></script>

@@ -1,123 +1,109 @@
 :root
 {
-  --green: #00c017;
-  --red: #920017;
-  --orangered: #f05500;
-  --orange: #ff9a00;
-  --darkblue: #044e7e;
-  --darkbar: #1a1a1a;
-  --yellow: #ffe000;
-  --lime: #00ff00;
   --darkgreen: #008900;
-  --skyblue: #00c5fb;
-  --magenta: #ff00fd;
-  --cancel: #e61919;
-  --background: #1e1e1e;
-  --text: #ddd;
-  --navtext: #111;
-  --hyper: #dc143c;
+  --green: #00C017;
+  --skyblue: #00C5FB;
+  --lime: #00FF00;
+  --darkblue: #044E7E;
+  --navtext: #111111;
+  --darkbar: #1A1A1A;
+  --background: #1E1E1E;
+  --red: #920017;
+  --hyper: #DC143C;
+  --text: #DDDDDD;
+  --cancel: #E61919;
+  --orangered: #F05500;
+  --magenta: #FF00FD;
+  --orange: #FF9A00;
+  --yellow: #FFE000;  
   --button-width: 70px;
 }
 
 body
 {
-  background-color: var(--background);
-  color: var(--text);
   font-family: 'Bloomberg Fixed Unicode B', monospace;
   font-size: small;
+  background-color: var(--background);
+  color: var(--text);
   margin: 0;
+  line-height: 1.6;
 }
 
 section
 {
-  line-height: 1.6em;
-  padding: 0 8px;
-}
-
-section.red
-{
-  background-color: var(--red);
-  color: var(--text);
-}
-
-section.black
-{
-  background-color: var(--darkbar);
-  color: var(--text);
+  padding: 0 6px;
 }
 
 section#console
 {
   position: fixed;
   bottom: 0;
-  width: 100%;
-  color: var(--orangered);
-}
-
-section#console span#console-return
-{
-  color: var(--text);
-}
-
-section#console span#console-button
-{
-  color: var(--navtext);
-  display: inline-block;
-  width: var(--button-width);
-  text-align: center;
-  font-weight: 600;
-}
-
-nav#thenav
-{
-  line-height: 2.6em;
-  padding: 0 6px;
+  color: var(--orange);
   background-color: var(--darkbar);
+  width: 100%;
 }
 
-button.navigator, button.navigator::-moz-focus-inner
+nav#topnav
 {
-  border: 0 !important;
+  background-color: var(--darkbar);
+  padding: 0 0 0 6px;
 }
 
-button.navigator
+button.action
 {
-  background-color: inherit;
   border-radius: initial;
   border: 0;
-  color: var(--navtext);
   cursor: pointer;
   display: inline-block;
   font-family: inherit;
   font-size: inherit;
-  font-weight: 600;
+  font-weight: 700;
+  line-height: 1.6;
+  margin: 5px 6px 5px 0;
   outline: none;
-  padding: 4px 0;
+  padding: 0;
   text-decoration: none;
   width: var(--button-width);
-  margin: 0 7px 0 0;
+  height: 24px;
 }
 
-button.red,
-span.red
-{
-  background-color: var(--red);
-}
-
-button.green,
-span.green
-{
-  background-color: var(--green);
-}
-
-button.cancel,
-span.cancel
+.cancel
 {
   background-color: var(--cancel);
+  color: var(--navtext);
 }
 
-a
+.green
 {
-  color: var(--hyper);
+  background-color: var(--green);
+  color: var(--navtext);
+}
+
+section#content div#header
+{
+  font-size: large;
+}
+
+section#console span#label
+{
+  width: var(--button-width);
+  display: inline-block;
+  text-align: center;
+  font-weight: 700;
+}
+
+section#console span#message
+{
+  color: var(--text);
+}
+
+section#console span#message a
+{
+  color: var(--yellow);
   text-decoration: none;
+}
+
+section#console span#message a:hover
+{
+  text-decoration: underline;
 }
