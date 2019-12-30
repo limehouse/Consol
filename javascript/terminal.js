@@ -5,49 +5,49 @@ const terminal = {
       Header : "Your Digital Dashboard",
       Message : "Hold on tight, we're heading home!",
       Class : "cancel",
-      Hotkey : "Escape"
+      Hotkey : "Digit1"
     },
     {
       Label : "Search",
       Header : "Using DuckDuckGo",
       Message : "Off we <a href='https://www.duckduckgo.com/' target='_blank'>DuckDuckGo</a>",
       Class : "green",
-      Hotkey : "Digit1"
+      Hotkey : "Digit2"
     },
     {
       Label : "SSH",
       Header : "Server: Pimlico",
       Message : "Make me look 1337",
       Class : "green",
-      Hotkey : "Digit2"
+      Hotkey : "Digit3"
     },
     {
       Label : "News",
       Header : "World Headlines",
       Message : "No news is good news",
       Class : "green",
-      Hotkey : "Digit3"
+      Hotkey : "Digit4"
     },
     {
       Label : "Download",
       Header : "The Piratebay",
       Message : "Oooharr",
       Class : "green",
-      Hotkey : "Digit4"
+      Hotkey : "Digit5"
     },
     {
       Label : "Roster",
       Header : "The Sharks",
       Message : "Don't forget to RSVP",
       Class : "green",
-      Hotkey : "Digit5"
+      Hotkey : "Digit6"
     },
     {
       Label : "Help",
       Header : "Read the Manual",
       Message : "You can lead a horse to water&hellip;",
       Class : "green",
-      Hotkey : "Digit6"
+      Hotkey : "Digit7"
     }
   ],
   getLabel : function(key)
@@ -100,7 +100,7 @@ terminal.buttons.forEach(addNavBtn);
 
 function addNavBtn(item, index)
 {
-  document.getElementById("topnav").insertAdjacentHTML("beforeend", `<button id="${index}" class="action" onClick="navigate(this)"><span style="float: left; background-color: var(--yellow);">&nbsp;${index}&nbsp;</span>${item.Label}</button>`);
+  document.getElementById("topnav").insertAdjacentHTML("beforeend", `<button id="${index}" class="action" onClick="navigate(this)"><span style="float: left; background-color: var(--yellow);">&nbsp;${index + 1}&nbsp;</span>${item.Label}</button>`);
   document.getElementById(index).classList.add(item.Class);
 }
 
