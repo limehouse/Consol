@@ -1,61 +1,118 @@
-const message = {
-  buttons : {
-    nav0 : {
+const terminal = {
+  buttons : [
+    {
       Label : "Home",
+      Header : "Your Digital Dashboard",
       Message : "Hold on tight, we're heading home!",
-      Class : "cancel"
+      Class : "cancel",
+      Hotkey : "Escape"
     },
-    nav1 : {
+    {
       Label : "Search",
+      Header : "Using DuckDuckGo",
       Message : "Off we <a href='https://www.duckduckgo.com/' target='_blank'>DuckDuckGo</a>",
-      Class : "green"
+      Class : "green",
+      Hotkey : "Digit1"
     },
-    nav2 : {
+    {
       Label : "SSH",
+      Header : "Server: Pimlico",
       Message : "Make me look 1337",
-      Class : "green"
+      Class : "green",
+      Hotkey : "Digit2"
     },
-    nav3 : {
+    {
       Label : "News",
+      Header : "World Headlines",
       Message : "No news is good news",
-      Class : "green"
+      Class : "green",
+      Hotkey : "Digit3"
     },
-    nav4 : {
+    {
       Label : "Download",
+      Header : "The Piratebay",
       Message : "Oooharr",
-      Class : "green"
+      Class : "green",
+      Hotkey : "Digit4"
     },
-    nav5 : {
+    {
       Label : "Roster",
+      Header : "The Sharks",
       Message : "Don't forget to RSVP",
-      Class : "green"
+      Class : "green",
+      Hotkey : "Digit5"
     },
-    nav6 : {
+    {
       Label : "Help",
+      Header : "Read the Manual",
       Message : "You can lead a horse to water&hellip;",
-      Class : "green"
+      Class : "green",
+      Hotkey : "Digit6"
     }
+  ],
+  getLabel : function(key)
+  {
+    return this.buttons[key].Label;
+  },
+  getHeader : function(key)
+  {
+    return this.buttons[key].Label.concat(" &ndash; ", this.buttons[key].Header);
   },
   getMessage : function(key)
   {
-    return this.buttons[key];
+    return this.buttons[key].Message;
+  },
+  getClass : function(key)
+  {
+    return this.buttons[key].Class;
+  },
+  getHotkey : function(key)
+  {
+    return this.buttons[key].Hotkey;
   }
 }
 
-function navigate(input)
+/**
+ * Display content for the user activated input
+ */
+function navigate(e)
 {
-  let btn = message.getMessage(input.id);
+  let Label = terminal.getLabel(e.id);
+  let Header = terminal.getHeader(e.id);
+  let Message = terminal.getMessage(e.id);
+  let Class = terminal.getClass(e.id);
+  let Hotkey = terminal.getHotkey(e.id);
+  
+  // content output
+  document.getElementById("header").innerHTML = Header;
+
+  // console output
   document.getElementById("label").className = "";
-  document.getElementById("label").classList.add(btn.Class);
-  document.getElementById("label").innerHTML = btn.Label;
-  document.getElementById("message").innerHTML = btn.Message;
-  document.getElementById("header").innerHTML = btn.Label;
+  document.getElementById("label").classList.add(Class);
+  document.getElementById("label").innerHTML = Label;
+  document.getElementById("message").innerHTML = Message;
 }
 
-let key;
-for (key in message.buttons)
+/**
+ * Add buttons to the navigation bar
+ */
+terminal.buttons.forEach(addNavBtn);
+
+function addNavBtn(item, index)
 {
-  document.getElementById("topnav").insertAdjacentHTML("beforeend", `<button id="${key}" class="action" onClick="navigate(this)">${message.buttons[key].Label}</button>`);
-  document.getElementById(`${key}`).classList.add(`${message.buttons[key].Class}`);
+  document.getElementById("topnav").insertAdjacentHTML("beforeend", `<button id="${index}" class="action" onClick="navigate(this)"><span style="float: left; background-color: var(--yellow);">&nbsp;${index}&nbsp;</span>${item.Label}</button>`);
+  document.getElementById(index).classList.add(item.Class);
 }
 
+/**
+* Key up event listener
+*/
+document.addEventListener("keyup", function(e)
+{
+  terminal.buttons.find((o, i) => {
+    if (o.Hotkey === e.code) {
+    //console.log(o, i);
+    let buttonEvent = { id : i };
+    navigate(buttonEvent);
+    }});
+});
