@@ -89,6 +89,8 @@ function navigate(e)
   document.getElementById("title").innerHTML = Label;
   document.getElementById("description").innerHTML = Header;
 
+  document.getElementById("page").innerHTML = e.id;
+
   // console output
   document.getElementById("label").className = "";
   document.getElementById("label").classList.add(Class);
@@ -103,7 +105,7 @@ terminal.buttons.forEach(addNavBtn);
 
 function addNavBtn(item, index)
 {
-  document.getElementById("topnav").insertAdjacentHTML("beforeend", `<button id="${index}" class="action" onClick="navigate(this)"><span style="float: left; border-right: 1px solid var(--background); background-color: var(--yellow);">&nbsp;${index + 1}&nbsp;</span>${item.Label}</button>`);
+  document.getElementById("topnav").insertAdjacentHTML("beforeend", `<button id="${index}" class="action" onClick="navigate(this)"><span class="hotkey">${index + 1}</span>${item.Label}</button>`);
   document.getElementById(index).classList.add(item.Class);
 }
 
@@ -112,9 +114,10 @@ function addNavBtn(item, index)
 */
 document.addEventListener("keyup", function(e)
 {
+  //console.log(e.code); //enable this to capture all keyup events
   terminal.buttons.find((o, i) => {
     if (o.Hotkey === e.code) {
-    //console.log(o, i); //enable this to capture all keyup events
+    //console.log(o, i);
     let buttonEvent = { id : i };
     navigate(buttonEvent);
     }});
