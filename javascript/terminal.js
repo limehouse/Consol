@@ -30,7 +30,7 @@ const terminal = {
     },
     {
       Label : "Download",
-      Header : "The Piratebay",
+      Header : "Torrents",
       Message : "Oooharr",
       Class : "green",
       Hotkey : "Digit5"
