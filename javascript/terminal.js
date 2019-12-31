@@ -2,7 +2,7 @@ const terminal = {
   buttons : [
     {
       Label : "Home",
-      Header : "Limehouse Switchboard",
+      Header : "Switchboard",
       Message : "Hold on tight, we're heading home!",
       Class : "cancel",
       Hotkey : "Digit1"
