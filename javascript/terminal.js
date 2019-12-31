@@ -2,28 +2,28 @@ const terminal = {
   buttons : [
     {
       Label : "Home",
-      Header : "Your Digital Dashboard",
+      Header : "Limehouse Switchboard",
       Message : "Hold on tight, we're heading home!",
       Class : "cancel",
       Hotkey : "Digit1"
     },
     {
       Label : "Search",
-      Header : "Using DuckDuckGo",
+      Header : "DuckDuckGo",
       Message : "Off we <a href='https://www.duckduckgo.com/' target='_blank'>DuckDuckGo</a>",
       Class : "green",
       Hotkey : "Digit2"
     },
     {
       Label : "SSH",
-      Header : "Server: Pimlico",
+      Header : "Pimlico",
       Message : "Make me look 1337",
       Class : "green",
       Hotkey : "Digit3"
     },
     {
       Label : "News",
-      Header : "World Headlines",
+      Header : "Reuters",
       Message : "No news is good news",
       Class : "green",
       Hotkey : "Digit4"
@@ -37,14 +37,14 @@ const terminal = {
     },
     {
       Label : "Roster",
-      Header : "The Sharks",
+      Header : "Sharks",
       Message : "Don't forget to RSVP",
       Class : "green",
       Hotkey : "Digit6"
     },
     {
       Label : "Help",
-      Header : "Read the Manual",
+      Header : "Manual",
       Message : "You can lead a horse to water&hellip;",
       Class : "green",
       Hotkey : "Digit7"
@@ -56,7 +56,8 @@ const terminal = {
   },
   getHeader : function(key)
   {
-    return this.buttons[key].Label.concat(" &ndash; ", this.buttons[key].Header);
+    //return this.buttons[key].Label.concat(" &ndash; ", this.buttons[key].Header);
+    return this.buttons[key].Header;
   },
   getMessage : function(key)
   {
@@ -84,7 +85,9 @@ function navigate(e)
   let Hotkey = terminal.getHotkey(e.id);
   
   // content output
-  document.getElementById("header").innerHTML = Header;
+  //document.getElementById("header").innerHTML = Header;
+  document.getElementById("title").innerHTML = Label;
+  document.getElementById("description").innerHTML = Header;
 
   // console output
   document.getElementById("label").className = "";
@@ -100,7 +103,7 @@ terminal.buttons.forEach(addNavBtn);
 
 function addNavBtn(item, index)
 {
-  document.getElementById("topnav").insertAdjacentHTML("beforeend", `<button id="${index}" class="action" onClick="navigate(this)"><span style="float: left; background-color: var(--yellow);">&nbsp;${index + 1}&nbsp;</span>${item.Label}</button>`);
+  document.getElementById("topnav").insertAdjacentHTML("beforeend", `<button id="${index}" class="action" onClick="navigate(this)"><span style="float: left; border-right: 1px solid var(--background); background-color: var(--yellow);">&nbsp;${index + 1}&nbsp;</span>${item.Label}</button>`);
   document.getElementById(index).classList.add(item.Class);
 }
 
@@ -111,7 +114,7 @@ document.addEventListener("keyup", function(e)
 {
   terminal.buttons.find((o, i) => {
     if (o.Hotkey === e.code) {
-    //console.log(o, i);
+    //console.log(o, i); //enable this to capture all keyup events
     let buttonEvent = { id : i };
     navigate(buttonEvent);
     }});
