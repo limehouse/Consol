@@ -24,7 +24,7 @@
 body
 {
   font-family: 'Bloomberg Fixed Unicode B', monospace;
-  font-size: large;
+  font-size: medium;
   background-color: var(--background);
   color: var(--text);
   margin: 0;
@@ -92,7 +92,7 @@ button.action span.hotkey
 
 section#content div#header
 {
-  font-size: x-large;
+  font-size: large;
 }
 
 section#content div#header span#title
