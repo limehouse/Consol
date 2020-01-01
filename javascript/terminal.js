@@ -72,6 +72,11 @@ const terminal = {
     return this.buttons[key].Hotkey;
   }
 }
+/**
+ * Page builder
+ */
+terminal.buttons.forEach(addNavBtn); // add the navigation buttons
+navigate({ id : 0 }); // default page to load
 
 /**
  * Display content for the user activated input
@@ -101,8 +106,6 @@ function navigate(e)
 /**
  * Add buttons to the navigation bar
  */
-terminal.buttons.forEach(addNavBtn);
-
 function addNavBtn(item, index)
 {
   document.getElementById("topnav").insertAdjacentHTML("beforeend", `<button id="${index}" class="action" onClick="navigate(this)"><span class="hotkey">${index + 1}</span>${item.Label}</button>`);
@@ -118,7 +121,6 @@ document.addEventListener("keyup", function(e)
   terminal.buttons.find((o, i) => {
     if (o.Hotkey === e.code) {
     //console.log(o, i);
-    let buttonEvent = { id : i };
-    navigate(buttonEvent);
+    navigate({ id : i });
     }});
 });
