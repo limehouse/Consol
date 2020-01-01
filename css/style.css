@@ -17,14 +17,14 @@
   --magenta: #FF00FD;
   --orange: #FF9A00;
   --yellow: #FFE000;  
-  --button-width: 100px;
+  --button-width: 135px;
   --line-height: 2.2;
 }
 
 body
 {
   font-family: 'Bloomberg Fixed Unicode B', monospace;
-  font-size: small;
+  font-size: large;
   background-color: var(--background);
   color: var(--text);
   margin: 0;
@@ -92,7 +92,7 @@ button.action span.hotkey
 
 section#content div#header
 {
-  font-size: large;
+  font-size: x-large;
 }
 
 section#content div#header span#title

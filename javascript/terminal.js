@@ -3,7 +3,7 @@ const terminal = {
     {
       Label : "Home",
       Header : "Switchboard",
-      Message : "Hold on tight, we're heading home!",
+      Message : "Greetings Professor Falken.  Shall we play a game?",
       Class : "cancel",
       Hotkey : "Digit1"
     },
