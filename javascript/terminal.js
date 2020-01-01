@@ -10,21 +10,21 @@ const terminal = {
     {
       Label : "Search",
       Header : "DuckDuckGo",
-      Message : "Off we <a href='https://www.duckduckgo.com/' target='_blank'>DuckDuckGo</a>",
+      Message : "Private search from <a href='https://www.duckduckgo.com/' target='_blank'>DuckDuckGo</a>",
       Class : "green",
       Hotkey : "Digit2"
     },
     {
-      Label : "SSH",
-      Header : "Pimlico",
-      Message : "Make me look 1337",
+      Label : "Bookmarks",
+      Header : "Favourites",
+      Message : "Sorted alphabetically",
       Class : "green",
       Hotkey : "Digit3"
     },
     {
       Label : "News",
-      Header : "Reuters",
-      Message : "No news is good news",
+      Header : "UK Edition",
+      Message : "Reuters News",
       Class : "green",
       Hotkey : "Digit4"
     },
