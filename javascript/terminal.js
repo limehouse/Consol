@@ -17,7 +17,7 @@ const terminal = {
     {
       Label : "Bookmarks",
       Header : "Favourites",
-      Message : "Sorted alphabetically",
+      Message : "Frequently Accessed Bookmarks",
       Class : "green",
       Hotkey : "Digit3"
     },
@@ -30,22 +30,22 @@ const terminal = {
     },
     {
       Label : "Download",
-      Header : "Torrents",
-      Message : "Oooharr",
+      Header : "Deluge",
+      Message : "Torrent Client",
       Class : "green",
       Hotkey : "Digit5"
     },
     {
-      Label : "Roster",
-      Header : "Sharks",
-      Message : "Don't forget to RSVP",
+      Label : "RSS",
+      Header : "Feeds",
+      Message : "Other RSS Feeds",
       Class : "green",
       Hotkey : "Digit6"
     },
     {
       Label : "Help",
-      Header : "Manual",
-      Message : "You can lead a horse to water&hellip;",
+      Header : "Overview",
+      Message : "Version 1.0",
       Class : "green",
       Hotkey : "Digit7"
     }
