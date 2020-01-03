@@ -5,49 +5,49 @@ const terminal = {
       Header : "Switchboard",
       Message : "Greetings Professor Falken.  Shall we play a game?",
       Class : "cancel",
-      Hotkey : "Digit1"
+      Hotkey : [ "Digit1", "Numpad1" ]
     },
     {
       Label : "Search",
       Header : "DuckDuckGo",
       Message : "Private search from <a href='https://www.duckduckgo.com/' target='_blank'>DuckDuckGo</a>",
       Class : "green",
-      Hotkey : "Digit2"
+      Hotkey : [ "Digit2", "Numpad2" ]
     },
     {
       Label : "Bookmarks",
       Header : "Favourites",
       Message : "Frequently Accessed Bookmarks",
       Class : "green",
-      Hotkey : "Digit3"
+      Hotkey : [ "Digit3", "Numpad3" ]
     },
     {
       Label : "News",
       Header : "UK Edition",
       Message : "Reuters News",
       Class : "green",
-      Hotkey : "Digit4"
+      Hotkey : [ "Digit4", "Numpad4" ]
     },
     {
       Label : "Download",
       Header : "Deluge",
       Message : "Torrent Client",
       Class : "green",
-      Hotkey : "Digit5"
+      Hotkey : [ "Digit5", "Numpad5" ]
     },
     {
       Label : "RSS",
       Header : "Feeds",
       Message : "Other RSS Feeds",
       Class : "green",
-      Hotkey : "Digit6"
+      Hotkey : [ "Digit6", "Numpad6" ]
     },
     {
       Label : "Help",
       Header : "Overview",
       Message : "Version 1.0",
       Class : "green",
-      Hotkey : "Digit7"
+      Hotkey : [ "Digit7", "Numpad7" ]
     }
   ],
   getLabel : function(key)
@@ -56,7 +56,6 @@ const terminal = {
   },
   getHeader : function(key)
   {
-    //return this.buttons[key].Label.concat(" &ndash; ", this.buttons[key].Header);
     return this.buttons[key].Header;
   },
   getMessage : function(key)
@@ -73,14 +72,14 @@ const terminal = {
   }
 }
 /**
- * Page builder
- */
+* Page builder
+*/
 terminal.buttons.forEach(addNavBtn); // add the navigation buttons
 navigate({ id : 0 }); // default page to load
 
 /**
- * Display content for the user activated input
- */
+* Display content for the user activated input
+*/
 function navigate(e)
 {
   let Label = terminal.getLabel(e.id);
@@ -90,12 +89,11 @@ function navigate(e)
   let Hotkey = terminal.getHotkey(e.id);
   
   // content output
-  //document.getElementById("header").innerHTML = Header;
   document.getElementById("title").innerHTML = Label;
   document.getElementById("description").innerHTML = Header;
-
+  
   document.getElementById("page").innerHTML = e.id;
-
+  
   // console output
   document.getElementById("label").className = "";
   document.getElementById("label").classList.add(Class);
@@ -104,8 +102,8 @@ function navigate(e)
 }
 
 /**
- * Add buttons to the navigation bar
- */
+* Add buttons to the navigation bar
+*/
 function addNavBtn(item, index)
 {
   document.getElementById("topnav").insertAdjacentHTML("beforeend", `<button id="${index}" class="action" onClick="navigate(this)"><span class="hotkey">${index + 1}</span>${item.Label}</button>`);
@@ -117,10 +115,16 @@ function addNavBtn(item, index)
 */
 document.addEventListener("keyup", function(e)
 {
-  //console.log(e.code); //enable this to capture all keyup events
-  terminal.buttons.find((o, i) => {
-    if (o.Hotkey === e.code) {
-    //console.log(o, i);
-    navigate({ id : i });
-    }});
+  let found = false;
+  terminal.buttons.find((o, i) => { // iterate all buttons
+    if (o.Hotkey.includes(e.code))
+    {
+      navigate({ id : i });
+      found = !found;
+    }
+  })
+  if (!found)
+  {
+    console.log("Unassigned hotkey", e.code);
+  }
 });
