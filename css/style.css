@@ -132,3 +132,32 @@ section#console span#message a:hover
 {
   text-decoration: underline;
 }
+
+section#console span#hotkey
+{
+  float: right;
+  margin-right: 14px;
+}
+
+section#console span.hotkey-found
+{
+  color: var(--yellow);
+}
+
+section#console span.hotkey-notfound
+{
+  color: var(--cancel);
+}
+
+section#console span#hotkey::before
+{
+  /* content: "Hotkey "; */
+  /* margin-right: 10px; */
+  color: var(--orange);
+  font-weight: 500;
+}
+
+section#console span#history::before
+{
+  content: "Navigator";
+}

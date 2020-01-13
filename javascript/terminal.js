@@ -119,12 +119,17 @@ document.addEventListener("keyup", function(e)
   terminal.buttons.find((o, i) => { // iterate all buttons
     if (o.Hotkey.includes(e.code))
     {
+      document.getElementById("hotkey").innerHTML = e.code;
+      document.getElementById("hotkey").className = "";
+      document.getElementById("hotkey").classList.add("hotkey-found");
       navigate({ id : i });
       found = !found;
     }
   })
   if (!found)
   {
-    console.log("Unassigned hotkey", e.code);
+    document.getElementById("hotkey").innerHTML = e.code;
+    document.getElementById("hotkey").className = "";
+    document.getElementById("hotkey").classList.add("hotkey-notfound");
   }
 });
