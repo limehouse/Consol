@@ -5,49 +5,49 @@ const terminal = {
       Header : "Switchboard",
       Message : "Greetings Professor Falken.  Shall we play a game?",
       Class : "cancel",
-      Hotkey : [ "Digit1", "Numpad1" ]
+      Hotkey : [ "1", "Escape" ]
     },
     {
       Label : "Search",
       Header : "DuckDuckGo",
       Message : "Private search from <a href='https://www.duckduckgo.com/' target='_blank'>DuckDuckGo</a>",
       Class : "green",
-      Hotkey : [ "Digit2", "Numpad2" ]
+      Hotkey : [ "2" ]
     },
     {
       Label : "Bookmarks",
       Header : "Favourites",
       Message : "Frequently Accessed Bookmarks",
       Class : "green",
-      Hotkey : [ "Digit3", "Numpad3" ]
+      Hotkey : [ "3" ]
     },
     {
       Label : "News",
       Header : "UK Edition",
       Message : "Reuters News",
       Class : "green",
-      Hotkey : [ "Digit4", "Numpad4" ]
+      Hotkey : [ "4" ]
     },
     {
       Label : "Download",
       Header : "Deluge",
       Message : "Torrent Client",
       Class : "green",
-      Hotkey : [ "Digit5", "Numpad5" ]
+      Hotkey : [ "5" ]
     },
     {
       Label : "RSS",
       Header : "Feeds",
       Message : "Other RSS Feeds",
       Class : "green",
-      Hotkey : [ "Digit6", "Numpad6" ]
+      Hotkey : [ "6" ]
     },
     {
       Label : "Help",
       Header : "Overview",
       Message : "Version 1.0",
       Class : "green",
-      Hotkey : [ "Digit7", "Numpad7" ]
+      Hotkey : [ "7" ]
     }
   ],
   getLabel : function(key)
@@ -71,6 +71,7 @@ const terminal = {
     return this.buttons[key].Hotkey;
   }
 }
+
 /**
 * Page builder
 */
@@ -86,7 +87,6 @@ function navigate(e)
   let Header = terminal.getHeader(e.id);
   let Message = terminal.getMessage(e.id);
   let Class = terminal.getClass(e.id);
-  let Hotkey = terminal.getHotkey(e.id);
   
   // content output
   document.getElementById("title").innerHTML = Label;
@@ -113,23 +113,24 @@ function addNavBtn(item, index)
 /**
 * Key up event listener
 */
-document.addEventListener("keyup", function(e)
+document.addEventListener("keydown", function(e)
 {
   let found = false;
-  terminal.buttons.find((o, i) => { // iterate all buttons
-    if (o.Hotkey.includes(e.code))
+  let pid;
+  terminal.buttons.find(function(o, i) {
+    if (o.Hotkey.includes(e.key))
     {
-      document.getElementById("hotkey").innerHTML = e.code;
-      document.getElementById("hotkey").className = "";
-      document.getElementById("hotkey").classList.add("hotkey-found");
-      navigate({ id : i });
       found = !found;
+      pid = i;
     }
-  })
-  if (!found)
+  });
+
+  document.getElementById("hotkey").innerHTML = e.key;
+  document.getElementById("hotkey").className = "";
+  document.getElementById("hotkey").classList.add(found ? "hotkey-found" : "hotkey-notfound");
+  
+  if (found)
   {
-    document.getElementById("hotkey").innerHTML = e.code;
-    document.getElementById("hotkey").className = "";
-    document.getElementById("hotkey").classList.add("hotkey-notfound");
+    navigate({ id : pid });
   }
 });
